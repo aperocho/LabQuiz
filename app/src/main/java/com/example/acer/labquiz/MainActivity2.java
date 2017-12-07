@@ -1,6 +1,8 @@
 package com.example.acer.labquiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +19,6 @@ public class MainActivity2 extends AppCompatActivity {
     TextView txt_wel;
     TextView txt_usr;
     Button btn_out;
-    FileOutputStream fos;
-    FileInputStream fis;
 
 
     @Override
@@ -30,11 +30,18 @@ public class MainActivity2 extends AppCompatActivity {
     txt_usr = findViewById(R.id.txt_usr);
     btn_out = findViewById(R.id.btn_out);
 
-}
-    public void btn_out (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());;
+        String user = preferences.getString("username","");
+        String pwd = preferences.getString("password","");
+        txt_usr.setText(user);
 
     }
+
+    public void logout (View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+}
+
 }
