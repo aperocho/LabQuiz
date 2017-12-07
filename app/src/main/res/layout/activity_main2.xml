@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="116dp"
         android:text="LOGOUT"
-        android:onClick="display"
+        android:onClick="logout"
         android:textSize="20sp" />
 
 </RelativeLayout>
